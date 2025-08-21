@@ -13,6 +13,34 @@ inputs:
     description: Your input description here
     required: true
     default: '1000'
+  expected-pods:
+    description: Expected number of pods
+    required: true
+    default: '3'
+  pull-interval:
+    description: Interval to pull the status of the pods
+    required: true
+    default: '20'
+  pull-count:
+    description: Number of times to pull the status of the pods
+    required: true
+    default: '10'
+  k8s-namespace:
+    description: Kubernetes namespace to check
+    required: true
+    default: 'default'
+  app-name:
+    description: Name of the application to check
+    required: true
+    default: 'my-app'
+  revision-tag:
+    description: Tag of the application revision to check
+    required: true
+    default: '1.0.0'
+  force-run-tests:
+    description: Force run tests even if the deployment is not available
+    required: false
+    default: 'false'
 
 # Define your outputs here.
 outputs:
@@ -20,5 +48,5 @@ outputs:
     description: Your output description here
 
 runs:
-  using: node24
+  using: node20
   main: dist/index.js
